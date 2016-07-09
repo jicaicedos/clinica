@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adicionar paciente</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="">Adicionar paciente</a></li>
+			<li><a href="">Historia clínica</a></li>
+			<li><a href="">Ver Historia clínica</a></li>
+			<li><a href="">Fórmula</a></li>
+			<li><a href="">Cita médica</a></li>
+			<li><a href="">Medicamentos</a></li>
+		</ul>
+	</nav>
+	<form method="post" action="adicionarpaciente">
+		<p>Cedula <input type="number" name="cedula" size="40">
+		Buscar <input type="submit" value="Adicionar"></p>
+		<p>Nombres <input type="text" name="nombres"></p>
+		<p>Apellids <input type="text" name="apellidos"></p>
+		<p>Dirección <input type="text" name="direccion"></p>	
+		<p>Teléfono <input type="number" name="telefono" size="12"></p>	
+		<p>Edad <input type="number" name="edad" size="3"> años</p>
+		<p>Peso <input type="number" name="peso" size="3"> Kgs</p>
+		<p>Estatura <input type="text" name="estatura"></p>
+		<p>Sexo 
+			<select name="sexo">
+				<option value="masculino">Masculino</option>
+				<option value="femenino">Femenino</option>
+			</select>
+		</p>
+		<p>RH <input type="text" name="rh"></p>
+		<section class="alergias">
+			<p>Alergias</p>
+			Leche <input type="radio" name="leche">
+			Huevos <input type="radio" name="huevos">
+			Pescado <input type="radio" name="pescado">
+			Maíz <input type="radio" name="maiz">			
+		</section>
+		<section class="alergias">
+			Picaduras de insectos <input type="radio" name="picaduras_insectos">
+			Perros <input type="radio" name="perros">
+			Gatos <input type="radio" name="gatos">
+			Otro <input type="text" name="otro">
+			<p>Otro tipo de alergia <input type="text" name="otro_tipo_alergia"></p>			
+		</section>
+	</form>	
+</body>
+</html>
