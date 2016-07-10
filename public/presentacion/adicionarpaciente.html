@@ -28,37 +28,50 @@
 			<div class="clearfix"></div>
 		</nav>
 	</div>
-	<form method="post" action="adicionarpaciente">
-		<p>Cédula <input type="number" name="cedula" size="40">
-		Buscar <input type="submit" value="Adicionar"></p>
-		<p>Nombres <input type="text" name="nombres"></p>
-		<p>Apellidos <input type="text" name="apellidos"></p>
-		<p>Dirección <input type="text" name="direccion"></p>	
-		<p>Teléfono <input type="number" name="telefono" size="12"></p>	
-		<p>Edad <input type="number" name="edad" size="3"> años</p>
-		<p>Peso <input type="number" name="peso" size="3"> Kgs</p>
-		<p>Estatura <input type="text" name="estatura"></p>
-		<p>Sexo 
-			<select name="sexo">
-				<option value="masculino">Masculino</option>
-				<option value="femenino">Femenino</option>
-			</select>
-		</p>
-		<p>RH <input type="text" name="rh"></p>
-		<section class="alergias">
-			<p>Alergias</p>
-			Leche <input type="radio" name="leche">
-			Huevos <input type="radio" name="huevos">
-			Pescado <input type="radio" name="pescado">
-			Maíz <input type="radio" name="maiz">
-		</section>
-		<section class="alergias">
-			Picaduras de insectos <input type="radio" name="picaduras_insectos">
-			Perros <input type="radio" name="perros">
-			Gatos <input type="radio" name="gatos">
-			Otro <input type="text" name="otro">
-			<p>Otro tipo de alergia <input type="text" name="otro_tipo_alergia"></p>			
-		</section>
-	</form>	
+	<h1>Adicionar paciente</h1>
+	<div class="formulario">		
+		<form method="post" action="adicionarpaciente">
+			<div class="datos_personales">
+				<p>Cédula <input type="number" name="cedula" size="40"></p>
+				<p>Buscar <input type="submit" value="Adicionar"></p>
+				<p>Nombres <input type="text" name="nombres"></p>
+				<p>Apellidos <input type="text" name="apellidos"></p>
+				<p>Dirección <input type="text" name="direccion"></p>	
+				<p>Teléfono <input type="number" name="telefono" size="12"></p>	
+				<p>Edad <input type="number" name="edad" size="3"> años</p>
+				<p>Peso <input type="number" name="peso" size="3"> Kgs</p>
+				<p>Estatura <input type="text" name="estatura"></p>
+				<p>Sexo 
+					<select name="sexo">
+						<option value="masculino">Masculino</option>
+						<option value="femenino">Femenino</option>
+					</select>
+				</p>
+				<p>RH <input type="text" name="rh"></p>
+			</div>
+			<div class="alergias">
+				<h2>Alergias</h2>
+				<p>Leche <input type="radio" name="leche"></p>
+				<p>Huevos <input type="radio" name="huevos"></p>
+				<p>Pescado <input type="radio" name="pescado"></p>
+				<p>Maíz <input type="radio" name="maiz"></p>
+				<p>Picaduras de insectos <input type="radio" name="picaduras_insectos"></p>
+				<p>Perros <input type="radio" name="perros"></p>
+				<p>Gatos <input type="radio" name="gatos"></p>
+				<p>Otro <input type="text" name="otro"></p>
+				<p>Otro tipo de alergia <input type="text" name="otro_tipo_alergia"></p>
+			</div>			
+		</form>
+	</div>
+	<div class="botones">
+		<button id="guardar">Guardar</button>	
+	</div>	
 </body>
+<footer>
+	<p>Carlos Eduardo Urbano</p>
+	<p>Atención primaria en Salud</p>
+	<p>R.008755 S. Salud de Bogotá D.C.</p>
+	<p>Fundación Medicina Preventiva</p>	
+</footer>
+
 </html>
