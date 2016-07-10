@@ -10,15 +10,20 @@
 	<script src="prefix-free.js"></script>
 </head>
 <body>
-	<div class="wrap">		
+ 	<div class="wrap">		
 		<nav>
 			<ul class="menu">
-				<li><a href="../../index.html"><span class="iconic home"></span></a></li>
-				<li><a href=""><span class="iconic plus-alt"></span>Adicionar paciente</a></li>
+				<li><a href="../../index.html"><span class="iconic home"></span></a></li>				
+				<li><a href="">Paciente</a>
+					<ul>
+						<li><a href="public/presentacion/adicionarpaciente.html"><span class="iconic plus-alt"></span>Adicionar</a></li>
+						<li><a href=""><span class="iconic read-more"></span>Consultar</a></li>
+					</ul>
+				</li>
 				<li><a href=""><span class=""></span>Historia clínica</a>
 					<ul>
-						<li><a href="">Registrar</a></li>
-						<li><a href="">Consultar</a></li>
+						<li><a href=""><span class="iconic arrow-up"></span>Registrar</a></li>
+						<li><a href=""><span class="iconic read-more"></span>Consultar</a></li>
 					</ul>
 				</li>
 				<li><a href="">Fórmula</a></li>
@@ -29,9 +34,10 @@
 		</nav>
 	</div>
 	<h1>Adicionar paciente</h1>
-	<div class="formulario">		
-		<form method="post" action="adicionarpaciente">
+	<form method="post" action="adicionarpaciente">
+		<div class="formulario">		
 			<div class="datos_personales">
+				<h2>Datos personales</h2>
 				<p>Cédula <input type="number" name="cedula" size="40"></p>
 				<p>Buscar <input type="submit" value="Adicionar"></p>
 				<p>Nombres <input type="text" name="nombres"></p>
@@ -61,8 +67,8 @@
 				<p>Otro <input type="text" name="otro"></p>
 				<p>Otro tipo de alergia <input type="text" name="otro_tipo_alergia"></p>
 			</div>			
-		</form>
-	</div>
+		</div>
+	</form>
 	<div class="botones">
 		<button id="guardar">Guardar</button>	
 	</div>	
