@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
 	<title>Adicionar paciente</title>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="iconic.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="estilosclinica.css">
+	<script src="prefix-free.js"></script>
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="">Adicionar paciente</a></li>
-			<li><a href="">Historia clínica</a></li>
-			<li><a href="">Ver Historia clínica</a></li>
-			<li><a href="">Fórmula</a></li>
-			<li><a href="">Cita médica</a></li>
-			<li><a href="">Medicamentos</a></li>
-		</ul>
-	</nav>
+	<div class="wrap">		
+		<nav>
+			<ul class="menu">
+				<li><a href="../../index.html"><span class="iconic home"></span></a></li>
+				<li><a href=""><span class="iconic plus-alt"></span>Adicionar paciente</a></li>
+				<li><a href=""><span class=""></span>Historia clínica</a>
+					<ul>
+						<li><a href="">Registrar</a></li>
+						<li><a href="">Consultar</a></li>
+					</ul>
+				</li>
+				<li><a href="">Fórmula</a></li>
+				<li><a href="">Cita médica</a></li>
+				<li><a href="">Medicamentos</a></li>
+			</ul>
+			<div class="clearfix"></div>
+		</nav>
+	</div>
 	<form method="post" action="adicionarpaciente">
-		<p>Cedula <input type="number" name="cedula" size="40">
+		<p>Cédula <input type="number" name="cedula" size="40">
 		Buscar <input type="submit" value="Adicionar"></p>
 		<p>Nombres <input type="text" name="nombres"></p>
-		<p>Apellids <input type="text" name="apellidos"></p>
+		<p>Apellidos <input type="text" name="apellidos"></p>
 		<p>Dirección <input type="text" name="direccion"></p>	
 		<p>Teléfono <input type="number" name="telefono" size="12"></p>	
 		<p>Edad <input type="number" name="edad" size="3"> años</p>
@@ -37,7 +50,7 @@
 			Leche <input type="radio" name="leche">
 			Huevos <input type="radio" name="huevos">
 			Pescado <input type="radio" name="pescado">
-			Maíz <input type="radio" name="maiz">			
+			Maíz <input type="radio" name="maiz">
 		</section>
 		<section class="alergias">
 			Picaduras de insectos <input type="radio" name="picaduras_insectos">
