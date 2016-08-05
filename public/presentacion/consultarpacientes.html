@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Adicionar paciente</title>
+	<title>Consultar pacientes</title>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 	
 	<meta charset="utf-8">
     <!-- Mobile Specific Metas-->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="public/presentacion/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
 
-	<link href="public/presentacion/style.css" media="screen" rel="stylesheet" type="text/css" />
-	<link href="public/presentacion/iconic.css" media="screen" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="public/presentacion/estilosclinica.css">
-	<script src="public/presentacion/prefix-free.js"></script>
-
+	<link href="css/style.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/iconic.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/estilosclinica.css" rel="stylesheet">
+	<script src="css/prefix-free.js"></script>
 </head>
 <body>
  	<div class="wrap">		
 		<nav>
 			<ul class="menu">
-				<li><a href=""><span class="iconic home"></span></a></li>				
+				<li><a href="../../index.html"><span class="iconic home"></span></a></li>				
 				<li><a href="">Paciente</a>
 					<ul>
-						<li><a href="public/presentacion/adicionarpaciente.html"><span class="iconic plus-alt"></span>Adicionar</a></li>
+						<li><a href="adicionarpaciente.html"><span class="iconic plus-alt"></span>Adicionar</a></li>
 						<li><a href=""><span class="iconic read-more"></span>Consultar</a></li>
 					</ul>
 				</li>
@@ -42,10 +41,15 @@
 			<div class="clearfix"></div>
 		</nav>
 	</div>
-	<h1>Bienvenido!</h1>
-	<h3>Clinica - Carlos Eduardo Urbano</h3>
-	<p>Esta clinica le ayudará con sus dolencias mediante medicina natural y la mejor atención</p>
-	<img class="logo_clinica" src="public/presentacion/img/formula.jpg" alt="logo">
+	<h1>Consultar pacientes</h1>
+
+	<form method="post" action="consultarpacientes">
+		<div class="formulario">		
+			<p>Cédula <input type="numeric" name="cedula" size="20"> </p>
+			<br>
+			<p><input type="submit" value="Buscar"></p>
+		</div>
+	</form>
 </body>
 <footer>
 	<p>Carlos Eduardo Urbano</p>
@@ -53,7 +57,5 @@
 	<p>R.008755 S. Salud de Bogotá D.C.</p>
 	<p>Fundación Medicina Preventiva</p>	
 </footer>
-</html>
 
-<!-- 103 641 7840 -->
-<!-- 38.887 -->
+</html>

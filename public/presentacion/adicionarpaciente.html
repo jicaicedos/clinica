@@ -3,11 +3,19 @@
 <head>
 	<title>Adicionar paciente</title>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+	
 	<meta charset="utf-8">
-	<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-	<link href="iconic.css" media="screen" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="estilosclinica.css">
-	<script src="prefix-free.js"></script>
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+	<link href="css/style.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/iconic.css" media="screen" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/estilosclinica.css">
+	<script src="css/prefix-free.js"></script>
 </head>
 <body>
  	<div class="wrap">		
@@ -16,8 +24,8 @@
 				<li><a href="../../index.html"><span class="iconic home"></span></a></li>				
 				<li><a href="">Paciente</a>
 					<ul>
-						<li><a href="public/presentacion/adicionarpaciente.html"><span class="iconic plus-alt"></span>Adicionar</a></li>
-						<li><a href=""><span class="iconic read-more"></span>Consultar</a></li>
+						<li><a href="adicionarpaciente.html"><span class="iconic plus-alt"></span>Adicionar</a></li>
+						<li><a href="consultarpacientes.html"><span class="iconic read-more"></span>Consultar</a></li>
 					</ul>
 				</li>
 				<li><a href=""><span class=""></span>Historia clínica</a>
@@ -39,14 +47,14 @@
 			<div class="datos_personales">
 				<h2>Datos personales</h2>
 				<p>Cédula <input type="number" name="cedula" size="40"></p>
-				<p>Buscar <input type="submit" value="Adicionar"></p>
+				<p><button id="buscar">Buscar</button></p>
 				<p>Nombres <input type="text" name="nombres"></p>
 				<p>Apellidos <input type="text" name="apellidos"></p>
 				<p>Dirección <input type="text" name="direccion"></p>	
 				<p>Teléfono <input type="number" name="telefono" size="12"></p>	
 				<p>Edad <input type="number" name="edad" size="3"> años</p>
 				<p>Peso <input type="number" name="peso" size="3"> Kgs</p>
-				<p>Estatura <input type="text" name="estatura"></p>
+				<p>Estatura <input type="number" name="estatura"> cms</p>
 				<p>Sexo 
 					<select name="sexo">
 						<option value="masculino">Masculino</option>
@@ -57,21 +65,21 @@
 			</div>
 			<div class="alergias">
 				<h2>Alergias</h2>
-				<p>Leche <input type="radio" name="leche"></p>
-				<p>Huevos <input type="radio" name="huevos"></p>
-				<p>Pescado <input type="radio" name="pescado"></p>
-				<p>Maíz <input type="radio" name="maiz"></p>
-				<p>Picaduras de insectos <input type="radio" name="picaduras_insectos"></p>
-				<p>Perros <input type="radio" name="perros"></p>
-				<p>Gatos <input type="radio" name="gatos"></p>
-				<p>Otro <input type="text" name="otro"></p>
-				<p>Otro tipo de alergia <input type="text" name="otro_tipo_alergia"></p>
+				<p><input type="radio" name="leche" id="rb_leche">Leche</p>
+				<p> <input type="radio" name="huevos" id="rb_huevos">Huevos</p>
+				<p> <input type="radio" name="pescado" id="rb_pescado">Pescado</p>
+				<p> <input type="radio" name="maiz" id="rb_maiz">Maíz</p>
+				<p> <input type="radio" name="picaduras_insectos" id="rb_insectos">Picaduras de insectos</p>
+				<p> <input type="radio" name="perros" id="rb_perros">Perros</p>
+				<p> <input type="radio" name="gatos" id="rb_gatos">Gatos</p>
+				<p>Otro <input type="text" name="otro" id="rt_otros"></p>
+				<p>Otro tipo de alergia <input type="text" name="otro_tipo_alergia" id="rt_otrotipoalergia"></p>
 			</div>			
 		</div>
+		<div class="botones">
+			<button id="guardar">Guardar</button>	
+		</div>	
 	</form>
-	<div class="botones">
-		<button id="guardar">Guardar</button>	
-	</div>	
 </body>
 <footer>
 	<p>Carlos Eduardo Urbano</p>

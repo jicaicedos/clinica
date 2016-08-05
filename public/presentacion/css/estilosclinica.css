@@ -1,3 +1,6 @@
+body {
+	color: white;
+}
 p {
 	text-align: center;
 }
@@ -21,7 +24,7 @@ h2 {
 h3 {
 	font-size: 16px;
 	text-align: center;
-	padding-bottom: 6em;	
+	padding-bottom: 2em;	
 }
 
 body {
@@ -76,6 +79,8 @@ footer {
 
 .logo_clinica {
 	margin: 1em;
+	height: 250px;
+	width: auto;
 }
 
 p {
