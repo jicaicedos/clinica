@@ -1,6 +1,10 @@
 body {
 	color: white;
 }
+
+input, button {
+	color: black;
+}
 p {
 	text-align: center;
 }
@@ -85,4 +89,11 @@ footer {
 
 p {
 	padding-bottom: 12px;
+}
+
+/* Clases para dar estilos a respuestas del servidor */
+.respuestas_server {
+	padding-top: 5em;
+	padding-bottom: 5em;
+	font-size: 36px;
 }

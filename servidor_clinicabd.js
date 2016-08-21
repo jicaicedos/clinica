@@ -86,17 +86,42 @@ function encaminar( pedido, respuesta, camino ) {
 				}
 				else {
 					camino = ''
+					// Encabezado de la página de respuesta
 					respuesta.writeHead(400, {'Content-Type': 'text/html'})
+					fs.readFile('head.html','utf8', function (err, data) {
+						if(err) respuesta.end('no existe el archivo head.html')
+						else {
+							respuesta.write(data)
+							respuesta.write('<h1>No existe el recurso</h1>')
+							fs.readFile('footer.html', 'utf8', function (err, data) {
+								if(err) respuesta.end()
+								respuesta.write(data)
+								respuesta.end()
+							});
+							respuesta.end()
+						}
+					});
+					
+					// opcion 1
+					// console.log(head)
+					// respuesta.write(head.text)
+					// respuesta.write('<h1>No existe el recurso</h1>')
+					// respuesta.write(footer.text)
+					
+					// opcion 2
 					// respuesta.write('<!doctype html><html><head><title></title></head><body><h1>Recurso inexistente</h1></body></html>')
 					// respuesta.end()
-					respuesta.write('<!doctype html>')
-					respuesta.write('<html>')
-					respuesta.write('<head><title>Error...</title></head>')
-					respuesta.write('<body>')
-					respuesta.write('<h1>No existe el recurso</h1>')
-					respuesta.write('</body>')
-					respuesta.write('</html>')
-					respuesta.end()				}
+
+					// opcion 3
+					// respuesta.write('<!doctype html>')
+					// respuesta.write('<html>')
+					// respuesta.write('<head><title>Error...</title></head>')
+					// respuesta.write('<body>')
+					// respuesta.write('<h1>No existe el recurso</h1>')
+					// respuesta.write('</body>')
+					// respuesta.write('</html>')
+					// respuesta.end()				
+				}
 			});
 		}
 	}
@@ -138,15 +163,16 @@ function adicionarPaciente( pedido, respuesta ) {
 			}
 		});
 
-		respuesta.writeHead( 200, {'Content-Type': 'text/html'})
-		respuesta.write('<!doctype html>')
-		respuesta.write('<html>')
-		respuesta.write('<head></head>')
-		respuesta.write('<body>')
-		respuesta.write('<h1>Adicionado nuevo paciente</h1>')
-		respuesta.write('<p><a href="index.html>Inicio</a></p>') 
-		respuesta.write('</body>')
-		respuesta.write('</html>')
+		var htmlRespuesta = new String('')
+		
+		respuesta.writeHead(400, {'Content-Type': 'text/html'})
+		var head = fs.readFileSync('head.html','utf8')
+		htmlRespuesta += head + '<p class="respuestas_server">Paciente adicionado.</p>'
+		var pie = fs.readFileSync('footer.html', 'utf8')
+
+		htmlRespuesta += pie
+
+		respuesta.write(htmlRespuesta)
 		respuesta.end()
 	});
 }
@@ -160,31 +186,88 @@ function consultarPacientes ( pedido, respuesta ) {
     });
     pedido.on('end', function(){
         var formulario = querystring.parse(info);
-		var dato=[formulario['cedula']];
-		conexion.query('select nombres,apellidos from pacientes where cedula=?',dato, function(error,filas){
+		var dato=[formulario['cedula']]
+
+		// campos a obtener de la base de datos del paciente
+		var datosPaciente = ''
+		datosPaciente = 'cedula,'
+		datosPaciente += 'nombres,'
+		datosPaciente += 'apellidos,'
+		datosPaciente += 'direccion,'
+		datosPaciente += 'telefono,'
+		datosPaciente += 'edad,'
+		datosPaciente += 'peso,'
+		datosPaciente += 'estatura,'
+		datosPaciente += 'sexo,'
+		datosPaciente += 'alergias,'
+		datosPaciente += 'rh'
+
+		conexion.query('select '+datosPaciente+' from pacientes where cedula=?',dato, function(error,filas){
 			if (error) {			
-				console.log('error en la consulta');
+				console.log('error en la consulta')
 				return;
 			}
-			respuesta.writeHead(200, {'Content-Type': 'text/html'});
-			var datos='';
+			
+
+			var datos = ''
 			if (filas.length>0) {
-				datos+='Nombres:'+filas[0].nombres+'<br>';
-				datos+='Apellidos:'+filas[0].apellidos+'<hr>';
+				datos+='Nombres: '+filas[0].nombres+'<br>'
+				datos+='Apellidos: '+filas[0].apellidos+'<br>'
+				datos+='Dirección: '+filas[0].direccion+'<br>'
+				datos+='Teléfono: '+filas[0].telefono+'<br>'
+				datos+='Edad: '+filas[0].edad+' años<br>'
+				datos+='Peso: '+filas[0].peso+' kgs <br>'
+				datos+='Estatura: '+filas[0].estatura+' cms <br>'
+				datos+='Sexo: '+filas[0].sexo+'<br>'
+				datos+='Alergias: '+filas[0].alergias+'<br>'
+				datos+='RH:'+filas[0].rh+'<hr>'
 			} else {
-				datos='No existe un artículo con dicho codigo.';
+				datos='No existe un artículo con dicho codigo.'
 			}	
-			respuesta.write('<!doctype html><html><head></head><body>');
-			respuesta.write(datos);	
-		    respuesta.write('<a href="index.html">Retornar</a>');			
-			respuesta.write('</body></html>');
-			respuesta.end();		
+
+			// Mostrará los datos del paciente al buscar por el campo 'cedula'
+			mostrarPacientePorCedula(datos, respuesta)
+
 		});
 	  
     });
 }
 
 // Funciones de utilidad
+
+// Función que crea una página con los datos obtenidos en la consulta de paciente por el campo 'cedula'
+function mostrarPacientePorCedula(datos, respuesta) {
+	respuesta.writeHead(200, {'Content-Type': 'text/html'});
+	respuesta.write('<!doctype html>')
+	respuesta.write('<html>')
+	respuesta.write('<head>')
+	respuesta.write('<meta charset="utf-8">')
+	respuesta.write('</head>')
+	respuesta.write('<body>')
+	respuesta.write(datos)
+	respuesta.write('<a href="consultarpacientes.html">Retornar</a>')
+	respuesta.write('</body>')
+	// respuesta.$.ajax({
+	// 	url: 'consultarpacientes',
+	// 	type: 'POST',
+	// 	dataType: 'html',
+	// 	data: {param1: 'value1'},
+	// })
+	// .done(function() {
+	// 	console.log("success");
+	// })
+	// .fail(function() {
+	// 	console.log("error");
+	// })
+	// .always(function() {
+	// 	console.log("complete");
+	// });
+	
+	respuesta.end()
+}
+
+// Contruye el encabezador
+
 function obtenerAlergias(formulario) {
 	var alergias = ''
 	if( formulario['leche']=='on' )
